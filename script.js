@@ -1,7 +1,6 @@
 // Get the input link
 const inputLink = prompt('Please enter a link:');
 
-
 // List of names to search for
 const namesToSearch = [
  'Bud Abbott',
@@ -161,6 +160,7 @@ const namesToSearch = [
 ];
 
 
+
 // Fetch the HTML content of the link
 fetch(inputLink)
   .then(response => response.text())
@@ -169,19 +169,23 @@ fetch(inputLink)
     const tempElement = document.createElement('div');
     tempElement.innerHTML = html;
 
+    // Find all text nodes within the HTML content
+    const textNodes = document.createTreeWalker(tempElement, NodeFilter.SHOW_TEXT);
 
-    // Search for the names in the link text and print them
-    const linkText = tempElement.textContent;
-    const foundNames = namesToSearch.filter(name => linkText.includes(name));
-    console.log('Names found in link:', foundNames);
-
-
-    // Find the "Full Cast & Crew" link within the page and print its href attribute
-    const fullCastCrewLink = tempElement.querySelector('a[href*="/fullcredits"]');
-    if (fullCastCrewLink) {
-      console.log('Full Cast & Crew link found:', fullCastCrewLink.href);
+    // Search for the names in the text nodes and print them
+    const foundNames = [];
+    while (textNodes.nextNode()) {
+      const textContent = textNodes.currentNode.textContent;
+      namesToSearch.forEach(name => {
+        if (textContent.includes(name)) {
+          foundNames.push(name);
+        }
+      });
+    }
+    if (foundNames.length > 0) {
+      console.log('Names found in link:', foundNames);
     } else {
-      console.log('Full Cast & Crew link not found.');
+      console.log('No names found in link.');
     }
   })
   .catch(error => console.error(error));
