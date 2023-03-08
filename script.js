@@ -1,8 +1,7 @@
-// Get the input link
 const inputLink = prompt('Please enter a link:');
 
 // List of names to search for
-const namesToSearch = [
+const namesToSearch =  [
  'Bud Abbott',
   'Lou Costello',
   'Forrest J Ackerman',
@@ -169,19 +168,15 @@ fetch(inputLink)
     const tempElement = document.createElement('div');
     tempElement.innerHTML = html;
 
-    // Find all text nodes within the HTML content
-    const textNodes = document.createTreeWalker(tempElement, NodeFilter.SHOW_TEXT);
-
-    // Search for the names in the text nodes and print them
+    // Search for the names in the HTML content and print them
     const foundNames = [];
-    while (textNodes.nextNode()) {
-      const textContent = textNodes.currentNode.textContent;
-      namesToSearch.forEach(name => {
-        if (textContent.includes(name)) {
-          foundNames.push(name);
-        }
-      });
-    }
+    namesToSearch.forEach(name => {
+      const nameRegex = new RegExp(name, 'gi');
+      const nameMatches = tempElement.textContent.match(nameRegex);
+      if (nameMatches) {
+        foundNames.push(name);
+      }
+    });
     if (foundNames.length > 0) {
       console.log('Names found in link:', foundNames);
     } else {
@@ -189,11 +184,6 @@ fetch(inputLink)
     }
   })
   .catch(error => console.error(error));
-
-
-
-
-
 
 
 
