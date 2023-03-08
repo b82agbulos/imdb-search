@@ -1,0 +1,86 @@
+/* Set default styles for body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set style for main heading */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Set style for section containing the link input */
+.section-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+/* Set style for the input field */
+.input-link {
+  width: 80%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.2);
+}
+
+/* Set style for the button */
+.btn {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.2);
+}
+
+/* Set style for the results section */
+.section-results {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Set style for the results container */
+.results-container {
+  width: 80%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.2);
+  padding: 1rem;
+}
+
+/* Set style for the section containing the "Full Cast & Crew" link */
+.section-fullcastcrew {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Set style for the "Full Cast & Crew" link */
+.fullcastcrew-link {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.fullcastcrew-link:hover {
+  color: #0056b3;
+}
